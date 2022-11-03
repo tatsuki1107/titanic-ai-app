@@ -1,0 +1,21 @@
+version: '3.7'
+
+services:
+  node:
+    container_name: node
+    build: ./frontend/.
+    volumes:
+      - ./frontend/src:/home/app/frontend/src
+      - ./frontend/public:/home/app/frontend/public
+    ports:
+      - 3000:3000
+    tty: true
+
+  python:
+    container_name: python
+    build: ./backend/.
+    volumes:
+      - ./backend:/app
+    ports:
+      - 5000:5000
+    tty: true

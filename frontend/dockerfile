@@ -1,0 +1,11 @@
+FROM node:17.4
+
+WORKDIR /home/app/frontend/
+
+COPY ./install.sh /home/app/frontend
+COPY ./package.json /home/app/frontend
+COPY ./tsconfig.json /home/app/frontend
+RUN chmod +x install.sh && ./install.sh
+
+EXPOSE 3000
+CMD ["npm", "start"]
